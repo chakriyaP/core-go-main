@@ -1,0 +1,21 @@
+version: "2"
+services:
+  core-go-api:
+    container_name: core-go-api
+    build:
+        context: .
+        dockerfile: Dockerfile
+    ports:
+        - "8001:8001"
+    restart: always
+    environment:
+        PORT: 8001
+        DATABASENAME: 'COREDB'
+        DBCONNECT: 'mongodb://admin:F0F0h345@192.168.1.108:27017'
+        JWT_SIGNINGKEY: v2k4m5n7q8r9t2j
+        REDIS_PASSWORD: KRqv3KkUab
+        
+networks:
+    default:
+        external:
+            name: sandbox_network
